@@ -6,7 +6,7 @@
 /*   By: jbadia <jbadia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/31 11:47:06 by jbadia            #+#    #+#             */
-/*   Updated: 2021/08/26 14:25:08 by jbadia           ###   ########.fr       */
+/*   Updated: 2021/08/26 15:40:08 by jbadia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,34 +100,15 @@ int	main(int argc, char **argv)
 	stack.c = calloc_stack(size);
 	init_struct(&stack, argc, argv);
 	if (!stack.a || !stack.b || !stack.c)
-	{
 		ft_free_all(&stack);
-		//return (NULL);
-	}
 	stack.a->tab = copy_stack(argv, stack.a, size);
 	stack.c->tab = copy_stack(argv, stack.c, size);
 	check_duplicate(&stack);
 	ft_check_args(argv);
-	
-	// printf("\nSTACK A -- AVANT \n");
-	// printf("SIZE_A = %d\n", stack.a->size);
-	// ft_print_stack(stack.a);
-
 	if (size < 6)
 		resolve_small(stack.a, stack.b);
 	else
 		resolve_big(stack.a, stack.b, stack.c);
-
-	// printf("\nSTACK C \n");
-	// ft_print_stack(stack.c);
-
-	// printf("\nSTACK A -- APRES \n");
-	// ft_print_stack(stack.a);
-
-	// printf("\nSTACK B -- APRES \n");
-	// ft_print_stack(stack.b);
-
-	
 	ft_free_all(&stack);
 	return (0);
 

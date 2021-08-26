@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   resolve.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbadia <jbadia@student.42quebec.com>       +#+  +:+       +#+        */
+/*   By: jbadia <jbadia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 12:05:04 by jbadia            #+#    #+#             */
-/*   Updated: 2021/08/25 16:21:07 by jbadia           ###   ########.fr       */
+/*   Updated: 2021/08/26 15:40:28 by jbadia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	resolve_small(t_stack *a, t_stack *b)
 		sort_5(a, b);
 }
 
-/*Makes sure stack A can correctly accept the numbers from stack B*/
 int	go_to_A(t_stack *a, t_stack *b)
 {
 	if ((b->tab[b->size - 1] < a->tab[a->size - 1]) &&

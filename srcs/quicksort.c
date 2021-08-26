@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quicksort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbadia <jbadia@student.42quebec.com>       +#+  +:+       +#+        */
+/*   By: jbadia <jbadia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 10:06:26 by jbadia            #+#    #+#             */
-/*   Updated: 2021/08/25 15:53:50 by jbadia           ###   ########.fr       */
+/*   Updated: 2021/08/26 15:40:20 by jbadia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	quicksort(t_stack *stack)
 
 int	partition(t_stack *stack, int down, int up, int pivot)
 {
-	// up part d'en bas, donc tout ce qui est plus grand que le pivot doit etre swap
 	while (down <= up)
 	{
 		while (stack->tab[down] < pivot)

@@ -3,21 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   push_op.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbadia <jbadia@student.42quebec.com>       +#+  +:+       +#+        */
+/*   By: jbadia <jbadia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 16:40:46 by jbadia            #+#    #+#             */
-/*   Updated: 2021/08/25 15:09:46 by jbadia           ###   ########.fr       */
+/*   Updated: 2021/08/26 15:39:39 by jbadia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
 void	ft_push(t_stack *stack, int nb)
 {
 	stack->tab[stack->size] = nb;
 	stack->size++;
-
 }
 
 int	out(t_stack *stack)

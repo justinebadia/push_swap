@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils_sort_big.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbadia <jbadia@student.42quebec.com>       +#+  +:+       +#+        */
+/*   By: jbadia <jbadia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 11:06:58 by jbadia            #+#    #+#             */
-/*   Updated: 2021/08/25 16:04:17 by jbadia           ###   ########.fr       */
+/*   Updated: 2021/08/26 15:44:24 by jbadia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 int	find_pivot(t_stack *stack)
 {
@@ -60,7 +59,6 @@ int	is_lowest(t_stack *stack)
 	}
 	return (low);
 }
-
 
 void	rb_or_rrb_big(t_stack *a, t_stack *b, int highest)
 {

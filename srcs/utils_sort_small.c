@@ -10,10 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
-
-
 
 int	check_order(int *stack, int len)
 {
@@ -28,8 +25,9 @@ int	check_order(int *stack, int len)
 	}
 	return (1);
 }
- int	is_lowest_small(t_stack *stack)
- {
+
+int	is_lowest_small(t_stack *stack)
+{
 	int	i;
 	int	*arr;
 	int	low;
@@ -45,7 +43,7 @@ int	check_order(int *stack, int len)
 	}
 	free(arr);
 	return (low);
- }
+}
 
 int	is_highest_small(t_stack *stack)
  {

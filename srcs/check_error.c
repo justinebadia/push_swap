@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbadia <jbadia@student.42quebec.com>       +#+  +:+       +#+        */
+/*   By: jbadia <jbadia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 14:56:37 by jbadia            #+#    #+#             */
-/*   Updated: 2021/08/25 14:55:13 by jbadia           ###   ########.fr       */
+/*   Updated: 2021/08/26 15:39:20 by jbadia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/*check si pas des int, check si > a un int, check si duplicates*/
 
 void	ft_putstr_error(char *str)
 {
@@ -59,7 +57,7 @@ int	ft_atoi_err(const char *str)
 		return (1);
 	if ((nb * is_negative) > INT32_MAX || (nb * is_negative) < INT32_MIN)
 	{
-		ft_putstr_error("not an integer \n");
+		ft_putstr_error("Error\n");
 		return (1);
 	}
 	return (0);
@@ -78,7 +76,7 @@ void	check_duplicate(t_ps *stack)
 		while (j <= stack->a->size - 1)
 		{
 			if (stack->a->tab[i] == stack->a->tab[j])
-				ft_putstr_error("ERROR : There is a duplicate number \n");
+				ft_putstr_error("Error\n");
 			j++;
 		}
 		i++;
