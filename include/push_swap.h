@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbadia <jbadia@student.42quebec.com>       +#+  +:+       +#+        */
+/*   By: jbadia <jbadia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/31 11:47:54 by jbadia            #+#    #+#             */
-/*   Updated: 2021/08/25 16:44:09 by jbadia           ###   ########.fr       */
+/*   Updated: 2021/08/26 11:21:54 by jbadia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,8 @@ void	sort_a_remove_smaller(t_stack *a, t_stack *b, int pivot);
 void	sort_b_remove_higher(t_stack *a, t_stack *b, int pivot);
 void	sort_b(t_stack *a, t_stack *b);
 void	sort_a(t_stack *a, t_stack *b, int highest);
+void	sort_a_final(t_stack *a, t_stack *b, int highest_a);
+void	sort_b_final(t_stack *a, t_stack *b);
 
 int		find_pivot(t_stack *stack);
 void	rb_or_rrb_big(t_stack *a, t_stack *b, int highest);
