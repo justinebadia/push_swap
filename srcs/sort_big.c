@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_big.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbadia <jbadia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jbadia <jbadia@student.42quebec.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 14:03:30 by jbadia            #+#    #+#             */
-/*   Updated: 2021/08/26 15:43:53 by jbadia           ###   ########.fr       */
+/*   Updated: 2021/08/27 10:02:47 by jbadia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,17 @@ void	sort_big(t_stack *a, t_stack *b)
 	pivot = find_pivot(a);
 	sort_a_remove_smaller(a, b, pivot);
 	sort_b(a, b);
-	sort_a_final(a, b, is_highest(a));
+	sort_a(a, b, is_highest(a));
 }
 
 void	sort_a_remove_smaller(t_stack *a, t_stack *b, int pivot)
 {
-	while (is_smaller(a, pivot))
-	{
-		while (a->tab[a->size - 1] > pivot)
-			ft_do_ra(a);
-		ft_do_pb(a, b);
-	}
+	if (!is_smaller(a, pivot))
+		return ;
+	if (a->tab[a->size - 1] > pivot)
+		ft_do_ra(a);
+	ft_do_pb(a, b);
+	sort_a_remove_smaller(a, b, pivot);
 }
 
 void	sort_b(t_stack *a, t_stack *b)
@@ -41,7 +41,7 @@ void	sort_b(t_stack *a, t_stack *b)
 		return ;
 	higher = is_highest(b);
 	sort_b_remove_higher(a, b, find_pivot(b));
-	while (a_is_next(a))
+	while (top(a) == zero(a) + 1)
 		ft_do_ra(a);
 	sort_b(a, b);
 	sort_a(a, b, higher);
@@ -52,7 +52,7 @@ void	sort_a(t_stack *a, t_stack *b, int highest)
 {
 	while (top(a) <= highest && top(a) != 0)
 	{
-		if (a_is_next(a))
+		if (a->tab[a->size - 1] == a->tab[0] + 1)
 				ft_do_ra(a);
 		else
 			ft_do_pb(a, b);
@@ -71,7 +71,7 @@ void	sort_b_remove_higher(t_stack *a, t_stack *b, int pivot)
 	i = b->size;
 	while (i-- > 0)
 	{
-		if (b_is_next(a, b))
+		if (top(b) == 0 || top(b) == (zero(a) + 1))
 		{
 			ft_do_pa(a, b);
 			ft_do_ra(a);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbadia <jbadia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jbadia <jbadia@student.42quebec.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 14:56:37 by jbadia            #+#    #+#             */
-/*   Updated: 2021/08/26 15:39:20 by jbadia           ###   ########.fr       */
+/*   Updated: 2021/08/27 15:34:59 by jbadia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,23 @@
 void	ft_putstr_error(char *str)
 {
 	ft_putstr_fd(str, 2);
-	exit(-1);
 }
 
-void	ft_check_args(char **argv)
+int	ft_check_args(char **argv)
 {
 	int	i;
 	
 	i = 0;
-		while (argv[i])
+	while (argv[i])
+	{
+		if (ft_atoi_err(argv[i]))
 		{
-			if (ft_atoi_err(argv[i]))
-				ft_putstr_error("not digit\n");
-				i++;
+			ft_putstr_error("Error\n");
+			return (0);
 		}
+		i++;
+	}
+	return (1);
 }
 
 int	ft_atoi_err(const char *str)
@@ -56,15 +59,12 @@ int	ft_atoi_err(const char *str)
 	if (str[i] != 0)
 		return (1);
 	if ((nb * is_negative) > INT32_MAX || (nb * is_negative) < INT32_MIN)
-	{
-		ft_putstr_error("Error\n");
 		return (1);
-	}
 	return (0);
 }
 
 
-void	check_duplicate(t_ps *stack)
+int	check_duplicate(t_ps *stack)
 {
 	int	i;
 	int j;
@@ -76,9 +76,13 @@ void	check_duplicate(t_ps *stack)
 		while (j <= stack->a->size - 1)
 		{
 			if (stack->a->tab[i] == stack->a->tab[j])
+			{
 				ft_putstr_error("Error\n");
+				return (0);
+			}
 			j++;
 		}
 		i++;
 	}
+	return (1);
 }

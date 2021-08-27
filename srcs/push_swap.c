@@ -3,33 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbadia <jbadia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jbadia <jbadia@student.42quebec.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/31 11:47:06 by jbadia            #+#    #+#             */
-/*   Updated: 2021/08/26 15:40:08 by jbadia           ###   ########.fr       */
+/*   Updated: 2021/08/27 15:29:06 by jbadia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-//ARG=`ruby -e "puts (0..22).to_a.shuffle.join(' ')"`; ./push_swap $ARG
+//ARG=`ruby -e "puts (0..500).to_a.shuffle.join(' ')"`; ./push_swap $ARG 
 // python3 pyviz.py `ruby -e "puts (0..100).to_a.shuffle.join(' ')"` 
-
-void ft_print_stack(t_stack *s)
-{
-	int i;
-
-	i = 0;
-	printf("-------------\n\n");
-	while (i < s->size)	
-	{
-		printf("stack[%i]:", i);
-		printf("%i\n", s->tab[i]);
-		i++;
-	}
-	printf("\n\n-------------");
-}
-
 
 t_stack	*calloc_stack(int size)
 {
@@ -98,18 +82,20 @@ int	main(int argc, char **argv)
 	stack.a = calloc_stack(size);
 	stack.b = calloc_stack(size);
 	stack.c = calloc_stack(size);
-	init_struct(&stack, argc, argv);
 	if (!stack.a || !stack.b || !stack.c)
-		ft_free_all(&stack);
+		ft_free_all(&stack, argv, argc);
+	init_struct(&stack, argc, argv);
 	stack.a->tab = copy_stack(argv, stack.a, size);
 	stack.c->tab = copy_stack(argv, stack.c, size);
-	check_duplicate(&stack);
-	ft_check_args(argv);
+	if (!check_duplicate(&stack) || !ft_check_args(argv))
+	{
+		ft_free_all(&stack, argv, argc);
+		exit (-1);
+	}
 	if (size < 6)
 		resolve_small(stack.a, stack.b);
 	else
 		resolve_big(stack.a, stack.b, stack.c);
-	ft_free_all(&stack);
+	ft_free_all(&stack, argv, argc);
 	return (0);
-
 }
