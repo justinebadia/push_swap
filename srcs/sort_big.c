@@ -6,7 +6,7 @@
 /*   By: jbadia <jbadia@student.42quebec.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 14:03:30 by jbadia            #+#    #+#             */
-/*   Updated: 2021/08/27 10:02:47 by jbadia           ###   ########.fr       */
+/*   Updated: 2021/08/27 15:58:51 by jbadia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ void	sort_big(t_stack *a, t_stack *b)
 
 void	sort_a_remove_smaller(t_stack *a, t_stack *b, int pivot)
 {
-	if (!is_smaller(a, pivot))
-		return ;
-	if (a->tab[a->size - 1] > pivot)
-		ft_do_ra(a);
-	ft_do_pb(a, b);
-	sort_a_remove_smaller(a, b, pivot);
+	while (is_smaller(a, pivot))
+	{
+		while (a->tab[a->size - 1] > pivot)
+			ft_do_ra(a);
+		ft_do_pb(a, b);
+	}
 }
 
 void	sort_b(t_stack *a, t_stack *b)
