@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbadia <jbadia@student.42quebec.com>       +#+  +:+       +#+        */
+/*   By: jbadia <jbadia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/31 11:47:54 by jbadia            #+#    #+#             */
-/*   Updated: 2021/08/27 15:28:20 by jbadia           ###   ########.fr       */
+/*   Updated: 2021/08/30 11:11:50 by jbadia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@
 # include <limits.h>
 # include <stdio.h>
 # include <stdbool.h>
-# include "../Libft/libft.h"
-
+# include "libft.h"
 
 typedef struct s_stack
 {
@@ -37,12 +36,12 @@ typedef struct s_ps
 void	ft_putstr_error(char *str);
 int		ft_check_args(char **argv);
 int		ft_atoi_err(const char *str);
-int	check_duplicate(t_ps *stack);
+int		check_duplicate(t_ps *stack);
 
 t_ps	*init_struct(t_ps *stack, int argc, char **argv);
 int		get_stack_size(int argc, char **argv);
-int		tab_size(int *tab);
 int		*copy_stack(char **argv, t_stack *stack, int size);
+t_stack	*calloc_stack(int size);
 
 void	ft_swap(t_stack *stack);
 void	ft_do_sa(t_stack *a);
@@ -67,7 +66,7 @@ void	ft_do_rrr(t_stack *a, t_stack *b);
 void	sort_2_a(t_stack *stack);
 void	sort_3_a(t_stack *stack);
 void	sort_5(t_stack *a, t_stack *b);
-void 	ra_or_rra(t_stack *stack);
+void	ra_or_rra(t_stack *stack);
 
 void	swap(int *stack, int up, int down);
 void	recursive_quicksort(t_stack *stack, int down, int up);
@@ -98,18 +97,6 @@ int		zero(t_stack *stack);
 void	ft_free_struct(t_stack *stack);
 void	ft_free_all(t_ps *stack, char **argv, int argc);
 void	ft_free_tab(char **tab, int argc);
-
-void	ft_bzero(void *s, size_t n);
-void	*ft_calloc(size_t count, size_t size);
-void	ft_putstr_fd(char *s, int fd);
-int	ft_atoi(const char *str);
-int	ft_isdigit(int c);
-char	**ft_split(char const *s, char c);
- char	*ft_copyword(char const *s, char c);
- char const	*ft_go_toc(char const *s, char c);
- char const	*ft_skip_c (char const *s, char c);
- int	ft_countwords(char const *s, char c);
- char	*ft_substr(char const *s, unsigned int start, size_t len);
- char	*ft_strdup (const char *s1);
+void	alloc_stack(t_ps *stack, int size, char **argv, int argc);
 
 #endif
