@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbadia <jbadia@student.42quebec.com>       +#+  +:+       +#+        */
+/*   By: jbadia <jbadia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 14:56:37 by jbadia            #+#    #+#             */
-/*   Updated: 2021/08/27 15:34:59 by jbadia           ###   ########.fr       */
+/*   Updated: 2021/08/30 09:23:55 by jbadia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_putstr_error(char *str)
 int	ft_check_args(char **argv)
 {
 	int	i;
-	
+
 	i = 0;
 	while (argv[i])
 	{
@@ -63,11 +63,10 @@ int	ft_atoi_err(const char *str)
 	return (0);
 }
 
-
 int	check_duplicate(t_ps *stack)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 0;
 	while (i < stack->a->size)

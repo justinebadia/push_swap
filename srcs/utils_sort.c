@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbadia <jbadia@student.42quebec.com>       +#+  +:+       +#+        */
+/*   By: jbadia <jbadia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 11:06:58 by jbadia            #+#    #+#             */
-/*   Updated: 2021/08/27 10:16:47 by jbadia           ###   ########.fr       */
+/*   Updated: 2021/08/30 09:47:39 by jbadia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	is_lowest(t_stack *stack)
 void	rb_or_rrb_big(t_stack *a, t_stack *b, int highest)
 {
 	int	i;
-	
+
 	i = 0;
 	if (b->tab[b->size - 1] == highest)
 	{

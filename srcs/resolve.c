@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   resolve.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbadia <jbadia@student.42quebec.com>       +#+  +:+       +#+        */
+/*   By: jbadia <jbadia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 12:05:04 by jbadia            #+#    #+#             */
-/*   Updated: 2021/08/27 09:38:13 by jbadia           ###   ########.fr       */
+/*   Updated: 2021/08/30 09:36:18 by jbadia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	resolve_big(t_stack *a, t_stack *b, t_stack *c)
 void	resolve_small(t_stack *a, t_stack *b)
 {
 	if (is_sorted(a))
-	 	return ;
+		return ;
 	if (a->size == 2)
 		sort_2_a(a);
 	if (a->size == 3)
@@ -33,13 +33,14 @@ void	resolve_small(t_stack *a, t_stack *b)
 
 int	go_to_a(t_stack *a, t_stack *b)
 {
-	if ((b->tab[b->size - 1] < a->tab[a->size - 1]) &&
-		(a->tab[a->size - 1] == is_lowest(a)))
+	if ((b->tab[b->size - 1] < a->tab[a->size - 1])
+		&& (a->tab[a->size - 1] == is_lowest(a)))
 		return (1);
-	if ((b->tab[b->size - 1] < a->tab[a->size - 1]) &&
-		(b->tab[b->size - 1] > a->tab[0]))
+	if ((b->tab[b->size - 1] < a->tab[a->size - 1])
+		&& (b->tab[b->size - 1] > a->tab[0]))
 		return (1);
-	if ((b->tab[b->size - 1] > is_highest(a)) && (a->tab[a->size - 1] == is_lowest(a)))
+	if ((b->tab[b->size - 1] > is_highest(a))
+		&& (a->tab[a->size - 1] == is_lowest(a)))
 		return (1);
 	return (0);
 }

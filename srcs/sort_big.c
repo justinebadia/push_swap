@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_big.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbadia <jbadia@student.42quebec.com>       +#+  +:+       +#+        */
+/*   By: jbadia <jbadia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 14:03:30 by jbadia            #+#    #+#             */
-/*   Updated: 2021/08/27 15:58:51 by jbadia           ###   ########.fr       */
+/*   Updated: 2021/08/30 09:39:36 by jbadia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	sort_a_remove_smaller(t_stack *a, t_stack *b, int pivot)
 void	sort_b(t_stack *a, t_stack *b)
 {
 	int	higher;
+
 	if (b->size == 0)
 		return ;
 	higher = is_highest(b);
@@ -45,7 +46,6 @@ void	sort_b(t_stack *a, t_stack *b)
 		ft_do_ra(a);
 	sort_b(a, b);
 	sort_a(a, b, higher);
-	
 }
 
 void	sort_a(t_stack *a, t_stack *b, int highest)
@@ -53,10 +53,9 @@ void	sort_a(t_stack *a, t_stack *b, int highest)
 	while (top(a) <= highest && top(a) != 0)
 	{
 		if (a->tab[a->size - 1] == a->tab[0] + 1)
-				ft_do_ra(a);
+			ft_do_ra(a);
 		else
 			ft_do_pb(a, b);
-		
 	}
 	if (is_lowest(b) == zero(a) + 1)
 		sort_b(a, b);

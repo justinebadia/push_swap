@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_sort_small.c                                            :+:      :+:    :+:   */
+/*   utils_sort_small.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbadia <jbadia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/11 17:01:34 by jbadia            #+#    #+#             */
-/*   Updated: 2021/08/11 17:25:19 by jbadia           ###   ########.fr       */
+/*   Created: 2021/08/30 09:46:39 by jbadia            #+#    #+#             */
+/*   Updated: 2021/08/30 09:47:24 by jbadia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	is_lowest_small(t_stack *stack)
 	int	i;
 	int	*arr;
 	int	low;
-	 
+
 	i = 1;
 	arr = in_order(stack->tab, stack->size);
 	low = arr[0];
@@ -46,11 +46,11 @@ int	is_lowest_small(t_stack *stack)
 }
 
 int	is_highest_small(t_stack *stack)
- {
+{
 	int	i;
 	int	*arr;
 	int	high;
-	 
+
 	i = 1;
 	arr = in_order(stack->tab, stack->size);
 	high = arr[0];
@@ -62,10 +62,10 @@ int	is_highest_small(t_stack *stack)
 	}
 	free(arr);
 	return (high);
- }
+}
 
- int	*in_order(int *stack, int len)
- {
+int	*in_order(int *stack, int len)
+{
 	int	*arr;
 	int	i;
 	int	tmp;
@@ -83,10 +83,10 @@ int	is_highest_small(t_stack *stack)
 		i++;
 	}
 	return (arr);
- }
+}
 
- int	*copy_tab(int *stack, int len)
- {
+int	*copy_tab(int *stack, int len)
+{
 	int	i;
 	int	*arr;
 
@@ -100,4 +100,4 @@ int	is_highest_small(t_stack *stack)
 		i++;
 	}
 	return (arr);
- }
+}

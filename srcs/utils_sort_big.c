@@ -6,7 +6,7 @@
 /*   By: jbadia <jbadia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 11:06:58 by jbadia            #+#    #+#             */
-/*   Updated: 2021/08/26 15:44:24 by jbadia           ###   ########.fr       */
+/*   Updated: 2021/08/30 09:46:09 by jbadia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	is_lowest(t_stack *stack)
 void	rb_or_rrb_big(t_stack *a, t_stack *b, int highest)
 {
 	int	i;
-	
+
 	i = 0;
 	if (b->tab[b->size - 1] == highest)
 	{

@@ -6,7 +6,7 @@
 /*   By: jbadia <jbadia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 10:06:26 by jbadia            #+#    #+#             */
-/*   Updated: 2021/08/26 15:40:20 by jbadia           ###   ########.fr       */
+/*   Updated: 2021/08/30 09:35:06 by jbadia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void	recursive_quicksort(t_stack *stack, int down, int up)
 {
 	int	index;
 	int	pivot;
-	pivot = stack->tab[(up + down)/2];
+
+	pivot = stack->tab[(up + down) / 2];
 	if (down < up)
 	{
 		index = partition(stack, down, up, pivot);
@@ -61,7 +62,6 @@ int	partition(t_stack *stack, int down, int up, int pivot)
 	}
 	return (down);
 }
-
 
 void	stack_to_index(t_stack *a, t_stack *c)
 {

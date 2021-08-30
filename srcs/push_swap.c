@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbadia <jbadia@student.42quebec.com>       +#+  +:+       +#+        */
+/*   By: jbadia <jbadia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/31 11:47:06 by jbadia            #+#    #+#             */
-/*   Updated: 2021/08/27 15:29:06 by jbadia           ###   ########.fr       */
+/*   Updated: 2021/08/30 13:56:32 by jbadia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
-
-//ARG=`ruby -e "puts (0..500).to_a.shuffle.join(' ')"`; ./push_swap $ARG 
-// python3 pyviz.py `ruby -e "puts (0..100).to_a.shuffle.join(' ')"` 
+#include "push_swap.h"
 
 t_stack	*calloc_stack(int size)
 {
@@ -34,7 +31,7 @@ t_stack	*calloc_stack(int size)
 int	get_stack_size(int argc, char **argv)
 {
 	int		size;
-	
+
 	size = 0;
 	if (argc > 2)
 		return (argc - 1);
@@ -71,19 +68,15 @@ t_ps	*init_struct(t_ps *stack, int argc, char **argv)
 int	main(int argc, char **argv)
 {
 	t_ps	stack;
-	
-	int	size;
+	int		size;
+
 	argv++;
 	if (argc < 2)
-		ft_putstr_error("missing arguments");
+		exit(-1);
 	if (argc == 2)
 		argv = ft_split(argv[0], ' ');
 	size = get_stack_size(argc, argv);
-	stack.a = calloc_stack(size);
-	stack.b = calloc_stack(size);
-	stack.c = calloc_stack(size);
-	if (!stack.a || !stack.b || !stack.c)
-		ft_free_all(&stack, argv, argc);
+	alloc_stack(&stack, size, argv, argc);
 	init_struct(&stack, argc, argv);
 	stack.a->tab = copy_stack(argv, stack.a, size);
 	stack.c->tab = copy_stack(argv, stack.c, size);
