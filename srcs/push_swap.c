@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbadia <jbadia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jbadia <jbadia@student.42quebec.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/31 11:47:06 by jbadia            #+#    #+#             */
-/*   Updated: 2021/08/30 13:56:32 by jbadia           ###   ########.fr       */
+/*   Updated: 2021/09/01 12:12:39 by jbadia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	main(int argc, char **argv)
 
 	argv++;
 	if (argc < 2)
-		exit(-1);
+		exit(EXIT_FAILURE);
 	if (argc == 2)
 		argv = ft_split(argv[0], ' ');
 	size = get_stack_size(argc, argv);
@@ -83,7 +83,7 @@ int	main(int argc, char **argv)
 	if (!check_duplicate(&stack) || !ft_check_args(argv))
 	{
 		ft_free_all(&stack, argv, argc);
-		exit (-1);
+		exit (EXIT_FAILURE);
 	}
 	if (size < 6)
 		resolve_small(stack.a, stack.b);
